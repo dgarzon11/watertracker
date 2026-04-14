@@ -27,11 +27,11 @@ function GlassProgress({ glasses }: { glasses: number }) {
   const filled = Math.min(glasses, total);
 
   return (
-    <div className="flex gap-2 justify-center flex-wrap">
+    <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${total}, 1fr)` }}>
       {Array.from({ length: total }).map((_, i) => (
         <div
           key={i}
-          className={`w-8 h-10 rounded-b-xl rounded-t-sm border-2 transition-all duration-300 ${
+          className={`h-10 rounded-b-xl rounded-t-sm border-2 transition-all duration-300 ${
             i < filled
               ? "bg-blue-400 border-blue-500 shadow-sm shadow-blue-200"
               : "bg-blue-50 border-blue-200"
